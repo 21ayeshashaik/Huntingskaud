@@ -8,7 +8,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
 
 export default function HeroSection() {
   return (
-    <section className="w-full py-12 bg-white">
+    <section className="bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] w-full py-12 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 lg:px-12">
         
         {/* Left Image - hidden on small screens */}

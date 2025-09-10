@@ -9,21 +9,13 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
 
 export default function RecruitmentJourney() {
   return (
-    <section className="relative w-full py-16 sm:py-20 bg-white overflow-hidden">
+    <section className="relative w-full py-6 sm:py-6 bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/images/bg-gradient.png"
-          alt="Background"
-          fill
-          className="object-cover opacity-20"
-          priority
-        />
-      </div>
+      
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Heading */}
-        <h1 className="mb-4">
+        <h1 className="mb-2">
           <span
             className={`${montserrat.className} font-bold not-italic text-[#252525] block text-3xl sm:text-4xl md:text-5xl leading-tight`}
           >
@@ -38,7 +30,7 @@ export default function RecruitmentJourney() {
 
         {/* Paragraph */}
         <p
-          className={`${dmSans.className} text-[16px] sm:text-[18px] md:text-[20px] leading-[1.75] text-[#909090] max-w-4xl mx-auto`}
+          className={`${dmSans.className} text-[16px] sm:text-[18px] md:text-[20px] leading-[1.75] text-[#909090] max-w-6xl mx-auto`}
         >
           We help ambitious companies hire faster by delivering curated
           technology professionals and trusted leaders—from engineers to
@@ -46,7 +38,7 @@ export default function RecruitmentJourney() {
         </p>
 
         {/* Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
+        <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
           {/* Hire Talent */}
           <div className="flex gap-0 items-center group">
             <button

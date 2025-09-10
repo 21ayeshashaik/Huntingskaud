@@ -9,7 +9,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: "400", style: "normal" });
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full bg-[#eff6ff]"
+      className="relative w-full bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)]"
       style={{
         height: "calc(100vh - 90px)",
         minHeight: "600px", // Ensure minimum height on small screens

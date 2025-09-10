@@ -53,6 +53,27 @@ export default function OurServices() {
   const ref = useRef<null | HTMLElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // --- Fix hydration error: generate floating dot styles only on client ---
+  const NUM_DOTS = 6;
+  const [dotStyles, setDotStyles] = useState<Array<{
+    left: string;
+    top: string;
+    animationDelay: string;
+    animationDuration: string;
+  }> | null>(null);
+
+  useEffect(() => {
+    // Only run on client
+    const styles = Array.from({ length: NUM_DOTS }).map((_, i) => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${i * 0.5}s`,
+      animationDuration: `${3 + Math.random() * 2}s`,
+    }));
+    setDotStyles(styles);
+  }, []);
+  // --- End fix ---
+
   const handleToggle = (idx: number) => {
     setActiveIndex(activeIndex === idx ? null : idx);
   };
@@ -233,18 +254,13 @@ export default function OurServices() {
 
       {/* Floating particles effect */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {dotStyles && dotStyles.map((style, i) => (
           <div
             key={i}
             className={`absolute w-2 h-2 bg-blue-200 rounded-full opacity-0 transition-all duration-1000 ${
               visible ? "animate-float" : ""
             }`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
+            style={style}
           ></div>
         ))}
       </div>

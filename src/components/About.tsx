@@ -45,7 +45,7 @@ export default function GrowthPartnersSection() {
   return (
     <section
       ref={ref}
-      className={`bg-gradient-to-br from-[#EDF6FF] to-[#F7F7FF] pt-10 pb-6 w-full transition-opacity duration-700 ease-out transform ${
+      className={`bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] pt-10 pb-6 w-full transition-opacity duration-700 ease-out transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >

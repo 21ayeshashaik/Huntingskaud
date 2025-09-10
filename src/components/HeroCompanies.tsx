@@ -1,85 +1,82 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
+
 import { Montserrat, DM_Sans } from "next/font/google";
 import { FiArrowUpRight } from "react-icons/fi";
+import Image from "next/image";
 
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700"] });
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "400"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export default function HeroSection() {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<null | HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      className={`w-full py-12 sm:py-16 lg:py-24 bg-white transition-opacity duration-700 ease-out transform ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 lg:gap-12 px-4 sm:px-6 lg:px-12">
-        {/* Left Image */}
-        <div className="flex-shrink-0 w-full md:w-1/2 flex justify-center md:justify-start">
-          <Image
-            src="/images/contactus2.jpg" // replace with your actual image path
-            alt="Hire Smarter"
-            width={600}
-            height={465}
-            className="rounded-[20px] sm:rounded-[30px] object-cover w-full max-w-[500px] h-auto"
-            priority
-          />
-        </div>
-
-        {/* Right Content */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl">
-          {/* Heading */}
+    <section className="bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] relative w-full bg-white">
+      <div className="relative mx-auto max-w-7xl py-20 px-4 sm:px-6 lg:px-20 h-full flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
+        {/* Left Content */}
+        <div className="max-w-2xl text-center lg:text-left">
           <h1
-            className={`${montserrat.className} font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-snug text-[#252525] mb-4 sm:mb-6`}
+            className={`${montserrat.className} text-3xl sm:text-4xl md:text-5xl lg:text-[40px] leading-tight text-gray-900`}
           >
-            Your Next Big Career Move Starts Here
+            <span className="font-bold not-italic block mb-2">
+              Why Companies Choose
+            </span>
+            <span className="font-normal italic text-[#007BFF] block">
+              Hunting Skuad
+            </span>
           </h1>
 
-          {/* Paragraph */}
           <p
-            className={`${dmSans.className} text-base sm:text-lg md:text-[18px] leading-relaxed text-[#909090] mb-6 sm:mb-8`}
+            className={`${dmSans.className} font-normal not-italic text-base sm:text-lg md:text-[18px] leading-relaxed text-[#909090] max-w-lg mt-4 sm:mt-6 mx-auto lg:mx-0`}
           >
-            We connect ambitious professionals with meaningful opportunities in startups and enterprises. Whether you’re looking to grow your career in technology or leadership, we help you find roles that truly matter.
+            We combine deep startup expertise, leadership insights, and a
+            research-driven approach to connect businesses with professionals
+            who don’t just fit roles but strengthen organizations.
           </p>
 
-          {/* Button */}
-          <div className="flex gap-2 items-center group">
-            <button
-              className={`${dmSans.className} bg-[#007BFF] text-white rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium hover:bg-blue-600 transition`}
-            >
-              Submit Your CV
-            </button>
-            <div
-              className={`w-9 sm:w-10 h-9 sm:h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
-                group-hover:bg-[#007BFF] group-hover:text-white`}
-            >
-              <FiArrowUpRight
-                className={`transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white`}
-                size={22}
-              />
+          <div className="mt-6 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            {/* Hire Talent */}
+            <div className="flex gap-0 items-center group">
+              <button className="rounded-full bg-[#007BFF] text-white px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-medium hover:bg-[#007BFF]/90 transition">
+                Hire Talent
+              </button>
+              <div
+                className={`w-9 sm:w-10 h-9 sm:h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
+                  group-hover:bg-[#007BFF] group-hover:text-white`}
+              >
+                <FiArrowUpRight
+                  className={`transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white`}
+                  size={22}
+                />
+              </div>
+            </div>
+
+            {/* Join Talent Pool */}
+            <div className="flex gap-0 items-center group">
+              <button className="rounded-full border border-[#007BFF] text-[#007BFF] px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-medium hover:bg-blue-50 transition">
+                Join Our Talent Pool
+              </button>
+              <div
+                className={`w-9 sm:w-10 h-9 sm:h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
+                  group-hover:bg-[#007BFF] group-hover:text-white`}
+              >
+                <FiArrowUpRight
+                  className={`transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white`}
+                  size={22}
+                />
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Right Image */}
+        <div className="flex-1 flex justify-center lg:justify-end mt-8 lg:mt-0">
+          <Image
+            src="/images/whycompanies.png"
+            alt="Hunting Skuad Illustration"
+            width={500}
+            height={400}
+            className="object-contain w-[80%] sm:w-[70%] md:w-[60%] lg:w-[500px] h-auto"
+            priority
+          />
         </div>
       </div>
     </section>
