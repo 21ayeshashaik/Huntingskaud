@@ -60,11 +60,23 @@ export default function HireSection() {
 
         <div className="flex mt-4 items-center group">
           <button
+           onClick={() => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
             className={`${dmSans.className} w-[163px] h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition`}
           >
             Request Talent
           </button>
           <div
+           onClick={() => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
             className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
                             group-hover:bg-[#007BFF] group-hover:text-white"
           >

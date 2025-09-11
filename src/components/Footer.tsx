@@ -1,20 +1,22 @@
 "use client";
 import Image from "next/image";
-import { Montserrat, DM_Sans, Roboto } from "next/font/google";
+import { Montserrat, DM_Sans } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700"] });
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500"] });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
+// Use DM Sans for body/link text to avoid additional font loader
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-[360px_1fr_1fr] gap-y-6 md:gap-y-0 md:gap-x-20 items-start">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20 py-12 sm:py-16 lg:py-20 
+                      grid grid-cols-1 md:grid-cols-[320px_1fr_1fr] gap-y-10 md:gap-y-0 md:gap-x-16 lg:gap-x-20 items-start">
 
         {/* Logo + Description */}
         <div className="flex flex-col max-w-[320px]">
           {/* Logo */}
-          <div className="relative w-[220px] h-[200px] mb-0 -mt-12">
+          <div className="relative w-[200px] h-[180px] sm:w-[220px] sm:h-[200px] mb-2 -mt-6 sm:-mt-10">
             <Image
               src="/images/logo.png"
               alt="Hunting Skaud logo"
@@ -34,15 +36,14 @@ export default function Footer() {
         </div>
 
         {/* Quick Links + Services */}
-        <div className="grid grid-cols-2 gap-x-10">
-
+        <div className="grid grid-cols-2 gap-x-8 sm:gap-x-10 lg:gap-x-16">
           <div>
             <h4
               className={`${montserrat.className} text-[15px] font-semibold text-[#3D3D3D] mb-3`}
             >
               Quick Links
             </h4>
-            <ul className="flex flex-col space-y-3">
+            <ul className="flex flex-col space-y-2 sm:space-y-3">
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
@@ -54,7 +55,7 @@ export default function Footer() {
                 <li key={i}>
                   <a
                     href={href}
-                    className={`${roboto.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:text-[#007BFF] transition`}
+                    className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:text-[#007BFF] transition`}
                   >
                     {label}
                   </a>
@@ -69,7 +70,7 @@ export default function Footer() {
             >
               Services
             </h4>
-            <ul className="flex flex-col space-y-3">
+            <ul className="flex flex-col space-y-2 sm:space-y-3">
               {[
                 { label: "Tech Recruitment", href: "/services/tech-recruitment" },
                 { label: "Executive Search", href: "/services/executive-search" },
@@ -81,7 +82,7 @@ export default function Footer() {
                 <li key={i}>
                   <a
                     href={href}
-                    className={`${roboto.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:text-[#007BFF] transition`}
+                    className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:text-[#007BFF] transition`}
                   >
                     {label}
                   </a>
@@ -117,7 +118,7 @@ export default function Footer() {
               </svg>
               <a
                 href="tel:+917827550145"
-                className={`${roboto.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:underline`}
+                className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:underline`}
               >
                 +91-7827550145
               </a>
@@ -141,7 +142,7 @@ export default function Footer() {
               </svg>
               <a
                 href="mailto:info@huntingskaud.com"
-                className={`${roboto.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:underline`}
+                className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px] hover:underline`}
               >
                 info@huntingskaud.com
               </a>
@@ -169,7 +170,7 @@ export default function Footer() {
                 />
               </svg>
               <address
-                className={`${roboto.className} text-[14px] text-[#7F7F7F] leading-[22px] not-italic`}
+                className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px] not-italic`}
               >
                 A-101/2, First Floor, Okhla Industrial Area, Phase II, New Delhi – 110024
               </address>
@@ -179,17 +180,17 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-200 py-3 px-6 md:px-0 flex flex-col ml-14 mr-14 md:flex-row justify-between items-center text-center md:text-left gap-2">
-        <span className={`${roboto.className} text-[13px] text-[#7F7F7F]`}>
-          All Rights Reserved @2025 Hunting Skaud
+      <div className="border-t border-gray-200 py-3 px-6 lg:px-12 xl:px-20 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-2">
+        <span className={`${dmSans.className} text-[13px] text-[#7F7F7F]`}>
+          All Rights Reserved ©2025 Hunting Skaud
         </span>
-        <span className={`${roboto.className} text-[13px] text-[#007BFF] flex gap-3`}>
+        <span className={`${dmSans.className} text-[13px] text-[#007BFF] flex gap-3`}>
           <a href="/privacy-policy" className="underline hover:text-[#3D3D3D] transition">
             Privacy Policy
           </a>
           |
           <a href="/terms" className="underline hover:text-[#3D3D3D] transition">
-            Terms &amp; Condition
+            Terms &amp; Conditions
           </a>
         </span>
       </div>

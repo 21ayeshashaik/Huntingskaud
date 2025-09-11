@@ -1,7 +1,6 @@
 
 import Footer from "@/components/Footer";
 
-import Whystartup from "@/components/WhyStartup";
 
 import Trusted from "@/components/Trusted";
 import ContactUs from "@/components/ContactForm";

@@ -1,4 +1,4 @@
-
+'use client';
 import Footer from "@/components/Footer";
 import About from "@/components/About";
 import Recruit from "@/components/Recruit";
