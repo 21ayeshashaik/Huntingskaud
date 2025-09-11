@@ -1,5 +1,6 @@
 import GrowthPartners from "@/components/Growth";
 import Navbar from "@/components/Header";
+import ScrollTimeline from "@/components/ScrollTimeline";
 import HireSection from "@/components/HireSection";
 import HomeSection from "@/components/Home";
 import WhyCompanies from "@/components/WhyComapanies";
@@ -14,7 +15,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div > {/* Add padding-top equal to navbar height */}
+      <ScrollTimeline />
+      <div className="pt-1"> {/* Add padding-top for timeline */}
         <HomeSection />
         <GrowthPartners />
         <WhyCompanies />

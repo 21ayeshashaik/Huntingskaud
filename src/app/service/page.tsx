@@ -6,17 +6,21 @@ import ContactUs from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Review from "@/components/Reviews";
 import Navbar from "@/components/Header";
+import ScrollTimeline from "@/components/ScrollTimeline";
 export default function Home() {
   return (
    <>
    <Navbar/>
-   <HeroSection/>
-   <Service2/>
-   <Service3/>
-   <Trusted/>
-      <Review/>
-      <ContactUs/>
+   <ScrollTimeline />
+   <div className="pt-1">
+     <HeroSection/>
+     <Service2/>
+     <Service3/>
+     <Trusted/>
+     <Review/>
+     <ContactUs/>
      <Footer/>
+   </div>
    </>   
   );
 }

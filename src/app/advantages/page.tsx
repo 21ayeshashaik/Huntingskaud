@@ -8,18 +8,21 @@ import ContactUs from "@/components/ContactForm";
 import Review from "@/components/Reviews"
 import Navbar from "@/components/Header";
 import HeroSection from "@/components/HeroCompanies";
+import ScrollTimeline from "@/components/ScrollTimeline";
 
 export default function Home() {
   return (
    <>
    <Navbar/>
-   <HeroSection/>
-   <Whystartup/>
-   <Trusted/>
-   <Review/>
-   <ContactUs/>
-  <Footer/>
-
+   <ScrollTimeline />
+   <div className="pt-1">
+     <HeroSection/>
+     <Whystartup/>
+     <Trusted/>
+     <Review/>
+     <ContactUs/>
+     <Footer/>
+   </div>
    </>   
   );
 }

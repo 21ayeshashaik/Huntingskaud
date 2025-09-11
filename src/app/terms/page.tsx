@@ -3,13 +3,18 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import Navbar from "@/components/Header";
+import ScrollTimeline from "@/components/ScrollTimeline";
 
 const TermsAndConditions = () => {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-sky-100 text-gray-800 flex flex-col items-center font-sans">
-      <div className="w-full max-w-3xl px-4 sm:px-6 md:px-8 py-8 sm:py-12 bg-white rounded-2xl shadow-lg mt-8 sm:mt-12 relative">
+    <>
+      <Navbar />
+      <ScrollTimeline />
+      <div className="min-h-screen bg-sky-100 text-gray-800 flex flex-col items-center font-sans pt-1">
+        <div className="w-full max-w-3xl px-4 sm:px-6 md:px-8 py-8 sm:py-12 bg-white rounded-2xl shadow-lg mt-8 sm:mt-12 relative">
         
         {/* Back Button */}
         <button
@@ -127,8 +132,9 @@ const TermsAndConditions = () => {
             support@huntingsquad.com
           </a>
         </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
