@@ -169,7 +169,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-200 py-3 px-6 lg:px-12 xl:px-20 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-2">
         <span className={`${dmSans.className} text-[13px] text-[#7F7F7F]`}>
-          All Rights Reserved ©2025 Hunting Skaud
+          <span>  All Rights Reserved.</span>
+        <span aria-hidden="true"> ©</span>
+    <span>{new Date().getFullYear()} </span>
+    <span>  Hunting Skaud</span>
         </span>
         <span className={`${dmSans.className} text-[13px] text-[#007BFF] flex gap-3`}>
           <a href="/privacy-policy" className="underline hover:text-[#3D3D3D] transition">
