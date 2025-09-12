@@ -13,8 +13,8 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
 
 export default function RecruitmentJourney() {
   return (
-    <section className="relative w-full py-6 sm:py-10 lg:py-10 bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
+    <section className="relative w-full py-0 bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 mt-18 sm:mt-12 md:mt-16 lg:mt-18 xl:mt-20 sm:px-6 lg:px-12 text-center">
         {/* Heading */}
         <h1 className="mb-4">
           <span

@@ -41,7 +41,6 @@ const ContactComponent: React.FC = () => {
     setErrors((p) => ({ ...p, [name]: "" }));
   };
 
-  // Validation
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
     if (!formData.firstName.trim())
@@ -61,7 +60,7 @@ const ContactComponent: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Submit handler
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) {
@@ -106,7 +105,7 @@ const ContactComponent: React.FC = () => {
       className="w-full flex flex-col md:flex-row items-stretch"
       style={{ minHeight: "calc(100vh - 90px)" }}
     >
-      {/* LEFT: Form */}
+     
       <div className="w-full md:w-1/2 bg-[#007BFF] flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-16 xl:p-24">
         <div className="w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
           <header className="mb-6 md:mb-8">
@@ -224,7 +223,7 @@ const ContactComponent: React.FC = () => {
                   {isLoading ? "Sending..." : "Send Request"}
                 </span>
 
-                {/* Hover effect circle with arrow */}
+               
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out">
                   <FiArrowUpRight
                     className="text-[#007BFF] transition-transform duration-300 group-hover:rotate-45"
@@ -232,7 +231,7 @@ const ContactComponent: React.FC = () => {
                   />
                 </div>
 
-                {/* Button text shift on hover */}
+               
                 <style jsx>{`
                   .group:hover span {
                     transform: translateX(-16px);
@@ -245,7 +244,7 @@ const ContactComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* RIGHT: Contact info */}
+      
       <div
         className="w-full md:w-1/2 flex items-center justify-center bg-cover bg-center relative overflow-hidden"
         style={{

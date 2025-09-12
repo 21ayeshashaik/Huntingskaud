@@ -122,8 +122,8 @@ export default function ValuesSection() {
           spaceBetween={16}
           slidesPerView={1.1}
           centeredSlides={true}
-          grabCursor={true} // makes it draggable
-          touchRatio={1.2} // increases swipe sensitivity
+          grabCursor={true}
+          touchRatio={1.2}
         >
           {cards.map((card) => (
             <SwiperSlide key={card.title}>
@@ -154,7 +154,6 @@ export default function ValuesSection() {
           ))}
         </Swiper>
 
-        {/* Gap between slides and dots */}
         <style jsx global>{`
           .swiper-pagination {
             margin-top: 20px; /* adjust the gap as needed */
@@ -163,21 +162,25 @@ export default function ValuesSection() {
         `}</style>
       </div>
 
-      {/* Tablet & larger → Grid layout with centered last row */}
-      <div className="hidden sm:grid grid-cols-3 gap-6 lg:gap-8">
-        {/* First Row: cards 0 to 2 */}
-        {cards.slice(0, 3).map((card) => (
-          <Card key={card.title} card={card} />
-        ))}
+      {/* Desktop → Grid Layout */}
+<div className="hidden sm:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* First row: 3 cards in grid */}
+  <div className="grid grid-cols-3 gap-6 lg:gap-8 justify-items-center mb-8">
+    {cards.slice(0, 3).map((card) => (
+      <Card key={card.title} card={card} />
+    ))}
+  </div>
 
-        {/* Second Row */}
-
-        {/* 4th card: start at col 2 */}
-        <Card key={cards[3].title} card={cards[3]} className="col-start-2" />
-
-        {/* 5th card: start at col 3 */}
-        <Card key={cards[4].title} card={cards[4]} className="col-start-3" />
+  {/* Second row: 2 cards centered */}
+  <div className="flex justify-center gap-6 lg:gap-8">
+    {cards.slice(3).map((card) => (
+      <div key={card.title} className="w-full max-w-xs">
+        <Card card={card} />
       </div>
+    ))}
+  </div>
+</div>
+
     </section>
   );
 }

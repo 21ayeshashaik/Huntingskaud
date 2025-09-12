@@ -99,7 +99,7 @@ const TeamContactComponent: React.FC = () => {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-[calc(100vh-90px)] bg-white">
-      {/* Left Side - Image */}
+     
       <div className="relative w-full lg:w-1/2 min-h-[400px] lg:min-h-[calc(100vh-90px)] overflow-hidden">
         <Image
           src="/images/contactus2.jpg"
@@ -123,7 +123,7 @@ const TeamContactComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* Right Side - Form */}
+     
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-6 sm:py-8 md:py-10">
         <div className="w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto">
           <h2
@@ -151,7 +151,7 @@ const TeamContactComponent: React.FC = () => {
             className="space-y-3 sm:space-y-4 w-full"
             noValidate
           >
-            {/* First Row */}
+           
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <input
@@ -191,7 +191,7 @@ const TeamContactComponent: React.FC = () => {
               </div>
             </div>
 
-            {/* Company */}
+          
             <div>
               <input
                 type="text"
@@ -211,7 +211,7 @@ const TeamContactComponent: React.FC = () => {
               )}
             </div>
 
-            {/* Role */}
+            
             <div>
               <input
                 type="text"
@@ -231,7 +231,7 @@ const TeamContactComponent: React.FC = () => {
               )}
             </div>
 
-            {/* Message */}
+          
             <div>
               <textarea
                 name="message"
@@ -251,7 +251,7 @@ const TeamContactComponent: React.FC = () => {
               )}
             </div>
 
-            {/* Submit Button */}
+          
             <button
               type="submit"
               disabled={isLoading}

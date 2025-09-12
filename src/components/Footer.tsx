@@ -4,7 +4,7 @@ import { Montserrat, DM_Sans } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700"] });
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500"] });
-// Use DM Sans for body/link text to avoid additional font loader
+
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20 py-12 sm:py-16 lg:py-20 
                       grid grid-cols-1 md:grid-cols-[320px_1fr_1fr] gap-y-10 md:gap-y-0 md:gap-x-16 lg:gap-x-20 items-start">
 
-        {/* Logo + Description */}
+      
         <div className="flex flex-col max-w-[320px]">
           {/* Logo */}
           <div className="relative w-[200px] h-[180px] sm:w-[220px] sm:h-[200px] mb-2 -mt-6 sm:-mt-10">
@@ -25,7 +25,7 @@ export default function Footer() {
             />
           </div>
 
-          {/* Description */}
+          
           <p
             className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px]`}
           >
@@ -35,7 +35,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Quick Links + Services */}
         <div className="grid grid-cols-2 gap-x-8 sm:gap-x-10 lg:gap-x-16">
           <div>
             <h4
@@ -92,7 +91,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Contact Us */}
+       
         <div>
           <h4
             className={`${montserrat.className} text-[15px] font-semibold text-[#3D3D3D] mb-3`}
