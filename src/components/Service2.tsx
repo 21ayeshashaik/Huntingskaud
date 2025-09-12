@@ -35,7 +35,7 @@ export default function GrowthSection() {
     >
       <div
         className="
-          bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] 
+           bg-gradient-to-br from-sky-200 to-purple-100 
           rounded-[24px] sm:rounded-[32px] md:rounded-[40px] lg:rounded-[48px]
           flex flex-col items-center justify-center text-center
           w-full max-w-[1200px] 

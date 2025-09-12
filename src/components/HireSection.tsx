@@ -44,7 +44,7 @@ export default function HireSection() {
           className={`${dmSans.className} text-[14px] sm:text-[16px] md:text-[18px] leading-[24px] md:leading-[35px] text-[#7F7F7F] mt-4`}
         >
           We partner with ambitious organizations to deliver recruitment
-          solutions tailored to their needs. Whether you’re hiring engineers at
+          solutions tailored to their needs. Whether you&apos;re hiring engineers at
           scale or looking for your next CXO, we have the expertise, speed, and
           network to make it happen.
         </p>
@@ -58,32 +58,35 @@ export default function HireSection() {
           <li>Dedicated recruiters who understand startup culture and challenges</li>
         </ul>
 
-        <div className="flex mt-4 items-center group">
-          <button
-           onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-            className={`${dmSans.className} w-[163px] h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition`}
-          >
-            Request Talent
-          </button>
-          <div
-           onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-            className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
-                            group-hover:bg-[#007BFF] group-hover:text-white"
-          >
-            <FiArrowUpRight
-              className="transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white"
-              size={24}
-            />
+        <div className="flex items-center group mt-4">
+          <div className="relative overflow-hidden">
+            <button
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`${dmSans.className} w-[163px] h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
+            >
+              Request Talent
+            </button>
+          </div>
+          <div className="ml-2 flex-shrink-0">
+            <div
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:translate-x-2"
+            >
+              <FiArrowUpRight
+                className="transition-all duration-700 ease-in-out text-[#007BFF] group-hover:rotate-45 group-hover:text-white group-hover:scale-125"
+                size={24}
+              />
+            </div>
           </div>
         </div>
       </div>

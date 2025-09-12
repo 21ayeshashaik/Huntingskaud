@@ -150,25 +150,13 @@ export default function Footer() {
 
             {/* Location */}
             <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 mt-1 text-[#007BFF]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z"
-                />
-              </svg>
+            <Image
+    src="/images/map.png" // path to your location icon
+    alt="Location"
+    width={20}                // adjust size as needed
+    height={20}
+    className="mt-1"
+  />
               <address
                 className={`${dmSans.className} text-[14px] text-[#7F7F7F] leading-[22px] not-italic`}
               >

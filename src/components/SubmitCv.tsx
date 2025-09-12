@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { Montserrat, DM_Sans } from "next/font/google";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -30,32 +29,35 @@ export default function HireSection() {
           <li>• Dedicated recruiters who understand startup culture and challenges</li>
         </ul>
 
-        <div className="flex gap-0 items-center group mt-4 sm:mt-6">
-          <button
-           onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-            className={`${dmSans.className} w-[140px] sm:w-[150px] md:w-[163px] h-[40px] sm:h-[44px] md:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition`}
-          >
-            Submit your CV
-          </button>
-          <div
-           onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-            className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
-                      group-hover:bg-[#007BFF] group-hover:text-white ml-2"
-          >
-            <FiArrowUpRight
-              className="transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white"
-              size={24}
-            />
+        <div className="flex items-center group mt-4 sm:mt-6">
+          <div className="relative overflow-hidden">
+            <button
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`${dmSans.className} w-[140px] sm:w-[150px] md:w-[163px] h-[40px] sm:h-[44px] md:h-[48px] bg-[#007BFF] text-white rounded-full text-sm sm:text-base md:text-lg px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
+            >
+              Submit your CV
+            </button>
+          </div>
+          <div className="ml-2 flex-shrink-0">
+            <div
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:translate-x-2"
+            >
+              <FiArrowUpRight
+                className="transition-all duration-700 ease-in-out text-[#007BFF] group-hover:rotate-45 group-hover:text-white group-hover:scale-125"
+                size={24}
+              />
+            </div>
           </div>
         </div>
       </div>

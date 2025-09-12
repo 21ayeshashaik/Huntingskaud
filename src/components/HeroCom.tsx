@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className={`bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)]
+      className={` bg-gradient-to-br from-sky-200 to-purple-100
         min-h-[calc(100vh-90px)] flex items-center w-full transition-opacity duration-700 ease-out transform
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
@@ -72,35 +72,34 @@ export default function HeroSection() {
             className={`${dmSans.className} mt-10 sm:mt-0 md:mt-10 lg:mt-0 text-[15px] sm:text-[16px] lg:text-[18px] leading-relaxed text-[#909090] mb-6 sm:mb-8`}
           >
             We deliver recruitment solutions tailored to your growth stage.
-            Whether you’re hiring engineers at scale or searching for your next
+            Whether you&apos;re hiring engineers at scale or searching for your next
             CXO, we bring speed, expertise, and a network you can trust.
           </p>
 
           {/* Button */}
-          <div className="flex gap-2 items-center justify-center md:justify-start group">
+          <div className="flex items-center justify-center md:justify-start w-full sm:w-auto gap-2 transition-all duration-700 ease-in-out hover:gap-4 group">
             <button
-            onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-              className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition`}
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-400 whitespace-nowrap hover:shadow-lg hover:scale-[1.02]`}
             >
               Request Talent
             </button>
             <div
-            onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
-                group-hover:bg-[#007BFF] group-hover:text-white`}
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg`}
             >
               <FiArrowUpRight
-                className={`transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white`}
+                className={`transition-all duration-700 ease-in-out text-[#007BFF] group-hover:rotate-45 group-hover:text-white group-hover:scale-125`}
                 size={22}
               />
             </div>

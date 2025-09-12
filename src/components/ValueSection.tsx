@@ -78,7 +78,7 @@ export default function ValuesSection() {
         </p>
 
         {/* Cards Section */}
-        {/* Mobile: Carousel | Desktop: Grid */}
+        {/* Mobile: Carousel */}
         <div className="block md:hidden">
           <Swiper
             modules={[Pagination]}
@@ -92,7 +92,7 @@ export default function ValuesSection() {
                 <div className="flex flex-col bg-[#EEEEEE] rounded-[20px] py-8 px-6 shadow-md">
                   <div className="w-full max-w-[395px] mx-auto">
                     {/* Icon + Title */}
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex flex-col items-start gap-2 mb-4">
                       <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow">
                         <Image
                           src={card.img}
@@ -103,7 +103,7 @@ export default function ValuesSection() {
                         />
                       </div>
                       <h3
-                        className={`${montserrat.className} font-semibold text-[18px] sm:text-[20px] text-[#3D3D3D] leading-[26px] sm:leading-[28px]`}
+                        className={`${montserrat.className} font-semibold text-[18px] sm:text-[20px] text-[#3D3D3D] leading-[26px]`}
                       >
                         {card.title}
                       </h3>
@@ -127,30 +127,27 @@ export default function ValuesSection() {
               key={card.title}
               className="flex flex-col bg-[#EEEEEE] rounded-[20px] py-8 px-6 shadow-md w-full max-w-[395px]"
             >
-              <div>
-                {/* Icon + Title */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow">
-                    <Image
-                      src={card.img}
-                      alt={card.title}
-                      width={40}
-                      height={40}
-                      className="object-contain"
-                    />
-                  </div>
-                  <h3
-                    className={`${montserrat.className} font-semibold text-[20px] text-[#3D3D3D] leading-[28px]`}
-                  >
-                    {card.title}
-                  </h3>
+              <div className="flex flex-col items-start gap-2 mb-4">
+                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow">
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    width={40}
+                    height={40}
+                    className="object-contain"
+                  />
                 </div>
-                <p
-                  className={`${dmSans.className} text-[16px] font-normal text-[#7F7F7F] leading-[26px] text-left`}
+                <h3
+                  className={`${montserrat.className} font-semibold text-[20px] text-[#3D3D3D] leading-[28px]`}
                 >
-                  {card.desc}
-                </p>
+                  {card.title}
+                </h3>
               </div>
+              <p
+                className={`${dmSans.className} text-[16px] font-normal text-[#7F7F7F] leading-[26px] text-left`}
+              >
+                {card.desc}
+              </p>
             </div>
           ))}
         </div>

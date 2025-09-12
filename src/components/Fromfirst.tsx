@@ -38,6 +38,44 @@ const cards = [
   },
 ];
 
+function Card({
+  card,
+  className,
+}: {
+  card: typeof cards[0];
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex flex-col h-full py-8 px-6 rounded-lg hover:shadow-lg transition-shadow duration-300 ${
+        className ?? ""
+      }`}
+    >
+      <div className="flex flex-col items-start gap-4 mb-6">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
+          <Image
+            src={card.icon}
+            alt={card.title}
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+        </div>
+        <h3
+          className={`${montserrat.className} font-semibold text-[18px] sm:text-[20px] text-[#3D3D3D] leading-[1.4]`}
+        >
+          {card.title}
+        </h3>
+      </div>
+      <p
+        className={`${dmSans.className} text-[15px] sm:text-[16px] text-[#7F7F7F] leading-[1.6] flex-grow`}
+      >
+        {card.text}
+      </p>
+    </div>
+  );
+}
+
 export default function ValuesSection() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<null | HTMLElement>(null);
@@ -67,12 +105,13 @@ export default function ValuesSection() {
       <h2
         className={`${montserrat.className} font-semibold text-[24px] sm:text-[28px] lg:text-[32px] text-[#3D3D3D] text-center mb-2 leading-[1.4]`}
       >
-     From First Call to Final Hire
+        From First Call to Final Hire
       </h2>
       <p
         className={`${dmSans.className} text-[15px] sm:text-[16px] lg:text-[18px] text-center font-normal leading-[1.8] mb-6 sm:mb-6 text-[#7F7F7F] max-w-3xl mx-auto`}
       >
-       Our process is simple, effective, and repeatable—designed to build trust and deliver results consistently.
+        Our process is simple, effective, and repeatable—designed to build trust
+        and deliver results consistently.
       </p>
 
       {/* Mobile → Swiper Carousel */}
@@ -124,36 +163,20 @@ export default function ValuesSection() {
         `}</style>
       </div>
 
-      {/* Tablet & larger → Grid layout */}
-      <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {cards.map((card) => (
-          <div
-            key={card.title}
-            className="flex flex-col h-full py-8 px-6 rounded-lg hover:shadow-lg transition-shadow duration-300"
-          >
-            <div className="flex flex-col items-start gap-4 mb-6">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
-                <Image
-                  src={card.icon}
-                  alt={card.title}
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <h3
-                className={`${montserrat.className} font-semibold text-[18px] sm:text-[20px] text-[#3D3D3D] leading-[1.4]`}
-              >
-                {card.title}
-              </h3>
-            </div>
-            <p
-              className={`${dmSans.className} text-[15px] sm:text-[16px] text-[#7F7F7F] leading-[1.6] flex-grow`}
-            >
-              {card.text}
-            </p>
-          </div>
+      {/* Tablet & larger → Grid layout with centered last row */}
+      <div className="hidden sm:grid grid-cols-3 gap-6 lg:gap-8">
+        {/* First Row: cards 0 to 2 */}
+        {cards.slice(0, 3).map((card) => (
+          <Card key={card.title} card={card} />
         ))}
+
+        {/* Second Row */}
+
+        {/* 4th card: start at col 2 */}
+        <Card key={cards[3].title} card={cards[3]} className="col-start-2" />
+
+        {/* 5th card: start at col 3 */}
+        <Card key={cards[4].title} card={cards[4]} className="col-start-3" />
       </div>
     </section>
   );

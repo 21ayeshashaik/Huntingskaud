@@ -94,9 +94,15 @@ const RecruitmentJourney: React.FC = () => {
              {/* Timeline vertical line aligned with icons */}
 <div className="absolute top-0 bottom-0 left-0 flex justify-center"
      style={{ width: '56px' /* matches max icon width (w-14 = 56px) */ }}>
-  {/* Background line */}
-  <div className="w-px  sm:left-[70%] lg:left-[50%] left-[70%]  h-full border-l border-dashed" style={{ borderColor: "#D3D3D3", transform: 'translateX(-50%)' }} />
-
+ <div
+    className="w-px h-full sm:left-[45%] left-[75%] border-l border-dashed"
+    style={{
+      borderColor: "#D3D3D3",
+      transform: 'translateX(-50%)',
+     // left: '65%', // Shift line more left inside container on small
+      position: 'absolute',
+    }}
+  />
   {/* Active blue line */}
   <div
     className="absolute sm:left-[70%] lg:left-[50%] left-[70%] top-0 w-px border-l-2 border-dashed transition-all duration-800 ease-out"

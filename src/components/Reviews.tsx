@@ -16,24 +16,24 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    text: "Yet preference connection unpleasant yet melancholy but end appearance. And excellence partially estimating terminated day everything.",
-    name: "Raman",
-    role: "Founder @TCS",
+    text: "This platform transformed the way our team collaborates and delivers projects efficiently.",
+    name: "Aarav Mehta",
+    role: "CEO @TechSphere",
   },
   {
-    text: "Yet preference connection unpleasant yet melancholy but end appearance. And excellence partially estimating terminated day everything.",
-    name: "Raman",
-    role: "Founder @TCS",
+    text: "An intuitive solution that saved us countless hours and boosted overall productivity.",
+    name: "Priya Sharma",
+    role: "Product Manager @Innova Labs",
   },
   {
-    text: "Yet preference connection unpleasant yet melancholy but end appearance. And excellence partially estimating terminated day everything.",
-    name: "Raman",
-    role: "Founder @TCS",
+    text: "The attention to detail and customer support made our onboarding experience seamless.",
+    name: "Rohit Verma",
+    role: "Founder @NextGen Solutions",
   },
   {
-    text: "Yet preference connection unpleasant yet melancholy but end appearance. And excellence partially estimating terminated day everything.",
-    name: "Raman",
-    role: "Founder @TCS",
+    text: "A game changer for startups looking to scale without adding complexity.",
+    name: "Sneha Kapoor",
+    role: "CTO @CloudNova",
   },
 ];
 
@@ -105,7 +105,7 @@ const TestimonialSection: React.FC = () => {
   return (
     <section
       ref={ref}
-      className={`py-14 px-20 bg-white w-full transition-opacity duration-700 ease-out transform ${
+      className={`py-14 px-2 sm:px-12 bg-white w-full transition-opacity duration-700 ease-out transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >

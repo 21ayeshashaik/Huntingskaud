@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className={`bg-[linear-gradient(90deg,#e8f6ff,#e5f6fe,#e4f5ff,#e7f5fe,#e1f3ff)] 
+      className={` bg-gradient-to-br from-sky-200 to-purple-100 
       w-full min-h-[calc(100vh-90px)] flex items-center transition-opacity duration-700 ease-out transform 
       ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
     >
@@ -66,7 +66,7 @@ export default function HeroSection() {
           </p>
 
           {/* Button */}
-          <div className="flex gap-2 sm:gap-3 items-center group">
+          <div className="flex items-center group w-full sm:w-auto gap-0 transition-all duration-700 ease-in-out hover:gap-4">
             <button
             onClick={() => {
     const element = document.getElementById("contact");
@@ -74,7 +74,7 @@ export default function HeroSection() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }}
-              className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition`}
+              className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-500 transition transition-all duration-400 whitespace-nowrap hover:shadow-lg hover:scale-[1.02]`}
             >
               Submit Your CV
             </button>

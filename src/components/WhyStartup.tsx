@@ -137,7 +137,7 @@ export default function ValuesSection() {
         {cards.map((card) => (
           <div
             key={card.title}
-            className="flex flex-col bg-[#EEEEEE]  h-full py-8 px-6 rounded-lg hover:shadow-lg transition-shadow duration-300"
+            className="flex flex-col bg-[#EEEEEE]  h-full py-8 px-6 rounded-[25px] hover:shadow-lg transition-shadow duration-300"
           >
             <div className="flex flex-col items-start gap-4 mb-6">
               <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
