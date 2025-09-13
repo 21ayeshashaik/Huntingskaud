@@ -3,7 +3,7 @@ import Navbar from "@/components/Header";
 import ScrollTimeline from "@/components/ScrollTimeline";
 import HireSection from "@/components/HireSection";
 import HomeSection from "@/components/Home";
-import WhyCompanies from "@/components/WhyComapanies";
+import WhyCompanies from "@/components/WhyCompanies";
 import Services from "@/components/Services";
 import SubmitCv from "@/components/SubmitCv";
 import Reviews from "@/components/Reviews";
@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Navbar />
       <ScrollTimeline />
-      <div className="pt-1"> {/* Add padding-top for timeline */}
+      <div>
         <HomeSection />
         <GrowthPartners />
         <WhyCompanies />

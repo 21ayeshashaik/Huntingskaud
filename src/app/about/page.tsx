@@ -14,7 +14,7 @@ export default function Home() {
    <>
    <Navbar/>
    <ScrollTimeline />
-   <div className="pt-1">
+   <div>
      <About/>
      <Recruit/>
      <ValuesSection/>

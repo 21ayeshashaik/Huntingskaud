@@ -11,7 +11,7 @@ export default function Home() {
    <>
    <Navbar/>
    <ScrollTimeline />
-   <div className="pt-0">
+   <div>
      <HeroSection/>
      <WhyLead/>
      <Trusted/>

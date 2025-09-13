@@ -16,11 +16,11 @@ interface Step {
 }
 
 const steps: Step[] = [
-  { id: "step1", number: "01", title: "Deep Startup Focus", description: "We understand the DNA of startups, where agility and speed are crucial. We adapt to your journey.", icon: "/images/journey1.png" },
-  { id: "step2", number: "02", title: "Engage", description: "We maintain constant communication with candidates, ensuring they remain motivated and informed.", icon: "/images/journey2.png" },
-  { id: "step3", number: "03", title: "Consult", description: "We advise both clients and candidates, sharing market insights and guiding decision-making.", icon: "/images/journey3.png" },
-  { id: "step4", number: "04", title: "Review", description: "We incorporate feedback to refine our process and improve results continuously.", icon: "/images/journey4.png" },
-  { id: "step5", number: "05", title: "Deliver", description: "We close the loop with successful placements that align with your goals.", icon: "/images/journey5.png" },
+  { id: "step1", number: "01", title: "Deep Startup Focus", description: "We understand the DNA of startups, where agility and speed are crucial. We adapt to your journey.", icon: "/images/journey1.svg" },
+  { id: "step2", number: "02", title: "Engage", description: "We maintain constant communication with candidates, ensuring they remain motivated and informed.", icon: "/images/journey2.svg" },
+  { id: "step3", number: "03", title: "Consult", description: "We advise both clients and candidates, sharing market insights and guiding decision-making.", icon: "/images/journey3.svg" },
+  { id: "step4", number: "04", title: "Review", description: "We incorporate feedback to refine our process and improve results continuously.", icon: "/images/journey4.svg" },
+  { id: "step5", number: "05", title: "Deliver", description: "We close the loop with successful placements that align with your goals.", icon: "/images/journey5.svg" },
 ];
 
 const RecruitmentJourney: React.FC = () => {
@@ -90,54 +90,7 @@ const RecruitmentJourney: React.FC = () => {
           </div>
 
           {/* Right Timeline */}
-          <div ref={containerRef} className="relative px-6 sm:px-10 lg:px-0">
-             {/* Timeline vertical line aligned with icons */}
-<div className="absolute top-0 bottom-0 left-0 flex justify-center"
-     style={{ width: '56px' /* matches max icon width (w-14 = 56px) */ }}>
- <div
-    className="w-px h-full sm:left-[45%] left-[75%] border-l border-dashed"
-    style={{
-      borderColor: "#D3D3D3",
-      transform: 'translateX(-50%)',
-     // left: '65%', // Shift line more left inside container on small
-      position: 'absolute',
-    }}
-  />
-  {/* Active blue line */}
-  <div
-    className="absolute sm:left-[70%] lg:left-[50%] left-[70%] top-0 w-px border-l-2 border-dashed transition-all duration-800 ease-out"
-    style={{
-      borderColor: "#007BFF",
-      height: `${lineHeight}px`,
-   //   left: '50%',
-      transform: 'translateX(-50%)',
-    }}
-  />
-
-  {/* Start dot */}
-  {/* Start dot */}
-{stepRefs.current[0] && (
-  <div
-    className="absolute sm:left-[70%] lg:left-[50%] left-[70%] w-3 h-3 bg-blue-500 rounded-full transition-all duration-300 ease-out"
-    style={{
-      top: `${stepRefs.current[0].offsetTop + stepRefs.current[0].offsetHeight / 2 - 30}px`, // 8+8 shifted upward
-      transform: 'translateX(-50%)',
-    }}
-  />
-)}
-
-
-  {/* End dot */}
-  <div
-    className="absolute w-3 h-3 sm:left-[70%] lg:left-[50%] left-[70%]  bg-blue-500 rounded-full transition-all duration-300 ease-out"
-    style={{
-      top: `${topPosition}px`,
-      //left: '50%',
-      transform: 'translateX(-50%)',
-    }}
-  />
-</div>
-
+          <div ref={containerRef} className="relative">
             {/* Steps */}
             <div className="space-y-12 sm:space-y-14 lg:space-y-16">
               {steps.map((step, index) => (
@@ -148,9 +101,52 @@ const RecruitmentJourney: React.FC = () => {
                     index <= activeStep ? "opacity-100" : "opacity-60"
                   }`}
                 >
+                  {/* Timeline lines - positioned relative to each step icon */}
+                  {index === 0 && (
+                    <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center"
+                         style={{ width: "clamp(48px, 4vw, 56px)" }}>
+                      {/* Gray dashed background line */}
+                      <div
+                        className="absolute w-px border-l border-dashed"
+                        style={{
+                          borderColor: "#D3D3D3",
+                          height: `${safeContainerHeight}px`,
+                          top: "20%",
+                        }}
+                      />
+                      
+                      {/* Active blue line */}
+                      <div
+                        className="absolute w-px border-l-2 border-dashed transition-all duration-800 ease-out"
+                        style={{
+                          borderColor: "#007BFF",
+                          height: `${lineHeight}px`,
+                          top: "20%",
+                        }}
+                      />
+
+                      {/* Start dot */}
+                      <div
+                        className="absolute w-3 h-3 bg-blue-500 rounded-full transition-all duration-300 ease-out"
+                        style={{
+                          top: "20%",
+                          transform: 'translateY(-50%)',
+                        }}
+                      />
+
+                      {/* End dot */}
+                      <div
+                        className="absolute w-3 h-3 bg-blue-500 rounded-full transition-all duration-300 ease-out"
+                        style={{
+                          top: `${topPosition - (stepRefs.current[0]?.offsetTop || 0) + 24}px`,
+                        }}
+                      />
+                    </div>
+                  )}
+
                   {/* Step icon */}
                   <div
-                    className={`relative flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-500 ${
+                    className={`relative flex-shrink-0 rounded-full flex items-center justify-center transition-all duration-500 z-10 ${
                       index <= activeStep ? "bg-blue-500 shadow-lg scale-110" : "bg-gray-200"
                     }`}
                     style={{

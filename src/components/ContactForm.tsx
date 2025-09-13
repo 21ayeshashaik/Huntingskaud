@@ -254,10 +254,14 @@ const ContactComponent: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/50 block md:hidden"></div>
         <div className="hidden md:block absolute inset-0">
-          <div
-            className="absolute top-1/2 left-[32%] transform -translate-x-1/2 -translate-y-1/2 bg-black/40 backdrop-blur-sm border border-white/10"
-            style={{ width: "600px", height: "500px", borderRadius: "20px" }}
-          ></div>
+        <div
+  className="absolute top-1/2 left-[32%] -translate-x-1/2 -translate-y-1/2 
+             bg-black/40 backdrop-blur-sm border border-white/10 
+             w-[320px] h-[240px] sm:w-[450px] sm:h-[350px] 
+             lg:w-[650px] lg:h-[500px] xl:w-[750px] xl:h-[580px] 
+             2xl:w-[900px] 2xl:h-[650px] rounded-2xl"
+></div>
+
         </div>
 
         <div className="w-full max-w-md text-white relative z-10">

@@ -32,7 +32,7 @@ export default function GrowthPartners() {
 
   return (
     <section
-      className="w-full bg-[#221C49] py-16 px-6 sm:px-8 lg:px-8 xl:px-16 2xl:px-24"
+      className="w-full bg-[#221C49] py-16 px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-24"
       style={{ minHeight: height, paddingTop: "12px", paddingBottom: "12px" }}
     >
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-y-16 gap-x-12 xl:gap-x-20 2xl:gap-x-32 items-center h-full">

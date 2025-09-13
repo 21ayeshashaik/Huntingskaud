@@ -66,34 +66,34 @@ export default function HeroSection() {
           </p>
 
           {/* Button */}
-          <div className="flex items-center group w-full sm:w-auto gap-0 transition-all duration-700 ease-in-out hover:gap-4">
-            <button
-            onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-              className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-500 transition transition-all duration-400 whitespace-nowrap hover:shadow-lg hover:scale-[1.02]`}
-            >
-              Submit Your CV
-            </button>
-            <div
-            onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
-              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300
-                group-hover:bg-[#007BFF] group-hover:text-white`}
-            >
-              <FiArrowUpRight
-                className={`transition-transform duration-300 text-[#007BFF] group-hover:rotate-45 group-hover:text-white`}
-                size={22}
-              />
-            </div>
-          </div>
+<div className="flex items-center group w-full sm:w-auto gap-0 transition-all duration-700 ease-in-out hover:gap-3">
+  <button
+    onClick={() => {
+      const element = document.getElementById("contact");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full flex items-center justify-center gap-0 hover:bg-blue-500 transition-all duration-300 hover:shadow-lg`}
+  >
+    Submit Your CV
+  </button>
+  <div
+    onClick={() => {
+      const element = document.getElementById("contact");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-500 ease-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:ml-0"
+  >
+    <FiArrowUpRight
+      className="text-[#007BFF] group-hover:text-white transition-all duration-500 ease-out group-hover:rotate-45"
+      size={22}
+    />
+  </div>
+</div>
+
         </div>
       </div>
     </section>

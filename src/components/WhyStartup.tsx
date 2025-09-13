@@ -2,10 +2,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Montserrat, DM_Sans } from "next/font/google";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700"] });
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500"] });
@@ -64,7 +60,9 @@ export default function ValuesSection() {
   return (
     <section
       ref={ref}
-      className={`py-12 sm:py-16 lg:py-20 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-opacity duration-700 ease-out transform ${
+      className={`py-12 sm:py-16 lg:py-20 bg-white max-w-7xl mx-auto 
+      px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24
+      transition-opacity duration-700 ease-out transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -83,61 +81,12 @@ export default function ValuesSection() {
         growth.
       </p>
 
-      {/* Mobile → Swiper Carousel */}
-      <div className="block sm:hidden">
-        <Swiper
-          modules={[Pagination]}
-          pagination={{ clickable: true }}
-          spaceBetween={16}
-          slidesPerView={1.1}
-          centeredSlides={true}
-          grabCursor={true} // makes it draggable
-          touchRatio={1.2} // increases swipe sensitivity
-        >
-          {cards.map((card) => (
-            <SwiperSlide key={card.title}>
-              <div className="bg-[#EEEEEE] rounded-lg p-6 shadow-sm">
-                <div className="flex flex-col items-start gap-4 mb-4">
-                  <div className="w-14 h-14 flex items-center justify-center">
-                    <Image
-                      src={card.icon}
-                      alt={card.title}
-                      width={40}
-                      height={40}
-                      className="object-contain"
-                    />
-                  </div>
-                  <h3
-                    className={`${montserrat.className} font-semibold text-[18px] text-[#3D3D3D]`}
-                  >
-                    {card.title}
-                  </h3>
-                </div>
-                <p
-                  className={`${dmSans.className} text-[15px] text-[#7F7F7F] leading-[1.6]`}
-                >
-                  {card.text}
-                </p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Gap between slides and dots */}
-        <style jsx global>{`
-          .swiper-pagination {
-            margin-top: 20px; /* adjust the gap as needed */
-            position: relative !important;
-          }
-        `}</style>
-      </div>
-
-      {/* Tablet & larger → Grid layout */}
-      <div className="hidden  sm:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {cards.map((card) => (
           <div
             key={card.title}
-            className="flex flex-col bg-[#EEEEEE]  h-full py-8 px-6 rounded-[25px] hover:shadow-lg transition-shadow duration-300"
+            className="flex flex-col bg-[#EEEEEE] h-full py-8 px-6 rounded-[25px] hover:shadow-lg transition-shadow duration-300"
           >
             <div className="flex flex-col items-start gap-4 mb-6">
               <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">

@@ -45,7 +45,7 @@ export default function GrowthPartnersSection() {
   return (
     <section
       ref={ref}
-      className={` bg-gradient-to-br from-sky-200 to-purple-100 pt-10 pb-10 w-full transition-opacity duration-700 ease-out transform ${
+      className={`bg-gradient-to-br from-sky-200 to-purple-100 pt-10 pb-10 w-full transition-opacity duration-700 ease-out transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -71,7 +71,7 @@ export default function GrowthPartnersSection() {
       </div>
 
       {/* Infinite scrolling carousel */}
-      <div className="overflow-hidden relative max-w-full sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="overflow-hidden relative w-full max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex gap-4 whitespace-nowrap animate-scroll">
           {[...images, ...images].map((src, idx) => (
             <div key={idx} className="flex-shrink-0">
@@ -80,11 +80,14 @@ export default function GrowthPartnersSection() {
                 alt={`Team pic ${idx + 1}`}
                 width={400}
                 height={300}
-                className="rounded-[20px] md:rounded-[30px] object-cover 
-                  w-[140px] h-[100px] sm:w-[180px] sm:h-[130px] 
-                  md:w-[240px] md:h-[180px] lg:w-[300px] lg:h-[220px]
-                  xl:w-[340px] xl:h-[250px]"
-                priority={idx < images.length} // prioritize first set of images
+                className={`rounded-[20px] md:rounded-[30px] object-cover 
+                  w-[140px] h-[100px] 
+                  sm:w-[180px] sm:h-[130px] 
+                  md:w-[240px] md:h-[180px] 
+                  lg:w-[300px] lg:h-[220px] 
+                  xl:w-[340px] xl:h-[250px]
+                  2xl:w-[380px] 2xl:h-[280px]`}
+                priority={idx < images.length}
               />
             </div>
           ))}

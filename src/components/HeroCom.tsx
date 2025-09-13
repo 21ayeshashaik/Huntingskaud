@@ -77,33 +77,34 @@ export default function HeroSection() {
           </p>
 
           {/* Button */}
-          <div className="flex items-center justify-center md:justify-start w-full sm:w-auto gap-2 transition-all duration-700 ease-in-out hover:gap-4 group">
-            <button
-              onClick={() => {
-                const element = document.getElementById("contact");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-400 whitespace-nowrap hover:shadow-lg hover:scale-[1.02]`}
-            >
-              Request Talent
-            </button>
-            <div
-              onClick={() => {
-                const element = document.getElementById("contact");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg`}
-            >
-              <FiArrowUpRight
-                className={`transition-all duration-700 ease-in-out text-[#007BFF] group-hover:rotate-45 group-hover:text-white group-hover:scale-125`}
-                size={22}
-              />
-            </div>
-          </div>
+<div className="flex items-center justify-center md:justify-start w-full sm:w-auto gap-0 transition-all duration-700 ease-in-out hover:gap-4 group">
+  <button
+    onClick={() => {
+      const element = document.getElementById("contact");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className={`${dmSans.className} w-[150px] sm:w-[163px] h-[44px] sm:h-[48px] bg-[#007BFF] text-white rounded-full flex items-center justify-center gap-0 hover:bg-blue-600 transition-all duration-400 whitespace-nowrap hover:shadow-lg`}
+  >
+    Request Talent
+  </button>
+  <div
+    onClick={() => {
+      const element = document.getElementById("contact");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:ml-0"
+  >
+    <FiArrowUpRight
+      className="transition-all duration-700 ease-in-out text-[#007BFF] group-hover:rotate-45 group-hover:text-white group-hover:scale-125"
+      size={22}
+    />
+  </div>
+</div>
+
         </div>
       </div>
     </section>

@@ -38,43 +38,44 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialSection: React.FC = () => {
-  const [offset, setOffset] = useState(0);
-  const [visibleSlides, setVisibleSlides] = useState(1); // ✅ default safe value for SSR
+  const [page, setPage] = useState(0);
+  const [visibleSlides, setVisibleSlides] = useState(1);
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement | null>(null);
 
-  // ✅ Update visible slides only on client
+  // Handle responsive slides
   useEffect(() => {
     const updateSlides = () => {
       const width = window.innerWidth;
-      if (width >= 1024) setVisibleSlides(3);
-      else if (width >= 768) setVisibleSlides(2);
-      else setVisibleSlides(1);
+      if (width >= 1536) setVisibleSlides(4); // 2xl → 4 cards
+      else if (width >= 1280) setVisibleSlides(3); // xl → 3 cards
+      else if (width >= 1024) setVisibleSlides(3); // lg → 3 cards
+      else if (width >= 768) setVisibleSlides(2); // md → 2 cards
+      else setVisibleSlides(1); // sm → 1 card
     };
 
-    updateSlides(); // run once on mount
+    updateSlides();
     window.addEventListener("resize", updateSlides);
     return () => window.removeEventListener("resize", updateSlides);
   }, []);
 
-  const getMaxOffset = useCallback((): number => {
-    return Math.max(testimonials.length - visibleSlides, 0);
-  }, [visibleSlides]);
+  // Max pages = total cards - visibleSlides
+  const maxPage = Math.max(testimonials.length - visibleSlides, 0);
 
   const handlePrev = useCallback(() => {
-    setOffset((prev) => Math.max(prev - 1, 0));
+    setPage((prev) => Math.max(prev - 1, 0));
   }, []);
 
   const handleNext = useCallback(() => {
-    setOffset((prev) => Math.min(prev + 1, getMaxOffset()));
-  }, [getMaxOffset]);
+    setPage((prev) => Math.min(prev + 1, maxPage));
+  }, [maxPage]);
 
-  // ✅ Ensure offset is valid when slides change
+  // Reset page if screen resizes
   useEffect(() => {
-    setOffset((prev) => Math.min(prev, getMaxOffset()));
-  }, [visibleSlides, getMaxOffset]);
+    setPage((prev) => Math.min(prev, maxPage));
+  }, [visibleSlides, maxPage]);
 
-  // ✅ Fade-in animation
+  // Intersection animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -85,11 +86,12 @@ const TestimonialSection: React.FC = () => {
       },
       { threshold: 0.1 }
     );
+
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  // ✅ Keyboard navigation
+  // Keyboard arrows
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (!visible) return;
@@ -100,47 +102,50 @@ const TestimonialSection: React.FC = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [visible, handleNext, handlePrev]);
 
-  const slideWidthPercent = 100 / visibleSlides;
-
   return (
     <section
       ref={ref}
-      className={`py-14 px-2 sm:px-12 bg-white w-full transition-opacity duration-700 ease-out transform ${
+      className={`py-16 px-6 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-22 bg-white w-full transition-opacity duration-700 ease-out transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-0 grid grid-cols-1 md:grid-cols-[40%_60%] gap-6 items-start">
+      <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-[40%_60%] gap-8 items-start">
         {/* Left Section */}
         <div>
-          <h2 className={`${montserrat.className} font-bold text-[32px] leading-[48px] text-[#3D3D3D] mb-2`}>
+          <h2
+            className={`${montserrat.className} font-bold text-[28px] sm:text-[32px] leading-[40px] sm:leading-[48px] text-[#3D3D3D] mb-4`}
+          >
             What Our Partners Say
           </h2>
-          <p className={`${dmSans.className} text-[18px] leading-[30px] text-[#7F7F7F] mb-9 max-w-sm`}>
-            Real stories from the companies and professionals who’ve trusted us to shape their teams and careers.
+          <p
+            className={`${dmSans.className} text-[16px] sm:text-[18px] leading-[28px] sm:leading-[32px] text-[#7F7F7F] max-w-sm`}
+          >
+            Real stories from the companies and professionals who’ve trusted us
+            to shape their teams and careers.
           </p>
 
           {/* Arrow Controls */}
-          <div className="flex gap-3">
+          <div className="flex gap-4 mt-8">
             <button
               onClick={handlePrev}
-              disabled={offset === 0}
+              disabled={page === 0}
               aria-label="Previous Testimonial"
               className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#007BFF] hover:text-white disabled:opacity-50"
             >
               <FiArrowUpRight
-                className="text-[#007BFF] hover:text-white"
+                className="text-[#007BFF]"
                 size={20}
                 style={{ transform: "rotate(225deg)" }}
               />
             </button>
             <button
               onClick={handleNext}
-              disabled={offset >= getMaxOffset()}
+              disabled={page >= maxPage}
               aria-label="Next Testimonial"
               className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#007BFF] hover:text-white disabled:opacity-50"
             >
               <FiArrowUpRight
-                className="text-[#007BFF] hover:text-white"
+                className="text-[#007BFF]"
                 size={20}
                 style={{ transform: "rotate(45deg)" }}
               />
@@ -152,26 +157,47 @@ const TestimonialSection: React.FC = () => {
         <div className="overflow-hidden relative select-none">
           <div
             className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${offset * slideWidthPercent}%)` }}
+            style={{
+              transform: `translateX(-${page * (100 / visibleSlides)}%)`,
+            }}
           >
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="mr-6 last:mr-0 bg-white px-4 py-6 rounded-lg shadow-md"
+                className="bg-white px-5 sm:px-6 md:px-8 py-6 sm:py-7 rounded-2xl shadow-md"
                 style={{
-                  flex: `0 0 ${slideWidthPercent}%`,
-                  minWidth: `${slideWidthPercent}%`,
+                  flex: `0 0 ${100 / visibleSlides}%`,
+                  maxWidth: `${100 / visibleSlides}%`,
                 }}
               >
-                <div className="flex space-x-1 mb-2">
+                <div className="flex space-x-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Image key={i} src="/images/Star.png" alt="star" width={20} height={20} unoptimized />
+                    <Image
+                      key={i}
+                      src="/images/Star.png"
+                      alt="star"
+                      width={20}
+                      height={20}
+                      unoptimized
+                    />
                   ))}
                 </div>
-                <p className={`${dmSans.className} text-[16px] leading-[28px] text-[#7F7F7F] mb-5`}>{t.text}</p>
+                <p
+                  className={`${dmSans.className} text-[15px] sm:text-[16px] leading-[26px] text-[#7F7F7F] mb-6`}
+                >
+                  {t.text}
+                </p>
                 <div>
-                  <div className={`${dmSans.className} font-bold text-[#3D3D3D] text-[16px]`}>{t.name}</div>
-                  <div className={`${dmSans.className} text-[#7F7F7F] text-[15px]`}>{t.role}</div>
+                  <div
+                    className={`${dmSans.className} font-bold text-[#3D3D3D] text-[16px] mb-1`}
+                  >
+                    {t.name}
+                  </div>
+                  <div
+                    className={`${dmSans.className} text-[#7F7F7F] text-[14px]`}
+                  >
+                    {t.role}
+                  </div>
                 </div>
               </div>
             ))}

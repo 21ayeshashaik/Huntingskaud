@@ -38,59 +38,60 @@ export default function RecruitmentJourney() {
           driving growth with speed, precision, and long-term impact.
         </p>
 
-        {/* Buttons */}
-        <div className="mt-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-        {/* Hire Talent Button */}
-        <div className="flex items-center group w-full sm:w-auto gap-0 transition-all duration-700 ease-in-out hover:gap-4">
-              <button
-                onClick={() => {
-                  const element = document.getElementById("contact");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-                className={`${dmSans.className} w-full sm:w-[150px] md:w-[160px] lg:w-[165px] xl:w-[175px] 2xl:w-[185px] h-[45px] sm:h-[46px] md:h-[47px] lg:h-[48px] xl:h-[50px] 2xl:h-[52px] bg-[#007BFF] text-white rounded-full flex items-center justify-center gap-0 hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
-              >
-                Hire Talent
-              </button>
-              <div
-                onClick={() => {
-                  const element = document.getElementById("contact");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 xl:w-11 xl:h-11 2xl:w-11 2xl:h-11 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-500 ease-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg ml-2 group-hover:ml-0"
-              >
-                <FiArrowUpRight
-                  className="text-[#007BFF] group-hover:text-white transition-all duration-500 ease-out group-hover:rotate-45 group-hover:scale-125"
-                  size={18}
-                />
-              </div>
-            </div>
+     {/* Buttons */}
+<div className="mt-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+  {/* Hire Talent Button */}
+  <div className="flex items-center group w-full sm:w-auto gap-0 transition-all duration-700 ease-in-out hover:gap-4">
+    <button
+      onClick={() => {
+        const element = document.getElementById("contact");
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }}
+      className={`${dmSans.className} w-full sm:w-[150px] md:w-[160px] lg:w-[165px] xl:w-[175px] 2xl:w-[185px] h-[45px] sm:h-[46px] md:h-[47px] lg:h-[48px] xl:h-[50px] 2xl:h-[52px] bg-[#007BFF] text-white rounded-full flex items-center justify-center gap-0 hover:bg-blue-500 transition-all duration-300 hover:shadow-lg`}
+    >
+      Hire Talent
+    </button>
+    <div
+      onClick={() => {
+        const element = document.getElementById("contact");
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }}
+      className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 xl:w-11 xl:h-11 2xl:w-11 2xl:h-11 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-500 ease-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg ml-2 group-hover:ml-0"
+    >
+      <FiArrowUpRight
+        className="text-[#007BFF] group-hover:text-white transition-all duration-500 ease-out group-hover:rotate-45 group-hover:scale-125"
+        size={18}
+      />
+    </div>
+  </div>
 
-            {/* Join Talent Pool Button */}
-            <div className="flex items-center group w-full sm:w-auto gap-2 transition-all duration-700 ease-in-out hover:gap-4">
-            <button
-  onClick={() => {
-    const element = document.getElementById("contact");
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  }}
-  className={`${montserrat.className} w-full sm:w-[200px] h-[45px] sm:h-[46px] md:h-[47px] lg:h-[48px] xl:h-[50px] 2xl:h-[52px] border border-[#007BFF] text-[#007BFF] rounded-full px-4 py-2 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-medium hover:bg-[#007BFF] hover:text-white transition-all duration-400 whitespace-nowrap hover:shadow-lg hover:scale-[1.02]`}
->
-  Join Our Talent Pool
-</button>
+  {/* Join Talent Pool Button */}
+  <div className="flex items-center group w-full sm:w-auto gap-2 transition-all duration-700 ease-in-out hover:gap-4">
+    <button
+      onClick={() => {
+        const element = document.getElementById("contact");
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }}
+      className={`${montserrat.className} w-full sm:w-[200px] h-[45px] sm:h-[46px] md:h-[47px] lg:h-[48px] xl:h-[50px] 2xl:h-[52px] border border-[#007BFF] text-[#007BFF] rounded-full px-4 py-2 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] font-medium hover:bg-[#007BFF] hover:text-white transition-all duration-400 whitespace-nowrap hover:shadow-lg`}
+    >
+      Join Our Talent Pool
+    </button>
 
-              <div
-                onClick={() => {
-                  const element = document.getElementById("contact");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 xl:w-11 xl:h-11 2xl:w-11 2xl:h-11 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg"
-              >
-                <FiArrowUpRight
-                  className="text-[#007BFF] group-hover:text-white transition-all duration-700 ease-in-out group-hover:rotate-45 group-hover:scale-125"
-                  size={18}
-                />
-              </div>
-            </div>
-        </div>
+    <div
+      onClick={() => {
+        const element = document.getElementById("contact");
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }}
+      className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 xl:w-11 xl:h-11 2xl:w-11 2xl:h-11 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg"
+    >
+      <FiArrowUpRight
+        className="text-[#007BFF] group-hover:text-white transition-all duration-700 ease-in-out group-hover:rotate-45 group-hover:scale-125"
+        size={18}
+      />
+    </div>
+  </div>
+</div>
+
 
         {/* World Map + Overlays */}
         <div className="relative mt-6 sm:mt-12 lg:mt-12 flex justify-center">

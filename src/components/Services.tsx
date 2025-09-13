@@ -53,27 +53,6 @@ export default function OurServices() {
   const ref = useRef<null | HTMLElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // --- Fix hydration error: generate floating dot styles only on client ---
-  const NUM_DOTS = 6;
-  const [dotStyles, setDotStyles] = useState<Array<{
-    left: string;
-    top: string;
-    animationDelay: string;
-    animationDuration: string;
-  }> | null>(null);
-
-  useEffect(() => {
-    // Only run on client
-    const styles = Array.from({ length: NUM_DOTS }).map((_, i) => ({
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      animationDelay: `${i * 0.5}s`,
-      animationDuration: `${3 + Math.random() * 2}s`,
-    }));
-    setDotStyles(styles);
-  }, []);
-  // --- End fix ---
-
   const handleToggle = (idx: number) => {
     setActiveIndex(activeIndex === idx ? null : idx);
   };
@@ -83,14 +62,14 @@ export default function OurServices() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          
+
           // Animate items with staggered delay
           SERVICES.forEach((_, index) => {
             setTimeout(() => {
               setAnimatedItems(prev => new Set([...prev, index]));
-            }, index * 150); // 150ms delay between each item
+            }, index * 150);
           });
-          
+
           observer.disconnect();
         }
       },
@@ -124,8 +103,6 @@ export default function OurServices() {
             className={`${montserrat.className} text-[28px] sm:text-[32px] md:text-[36px] leading-snug text-[#3D3D3D] font-bold relative z-10`}
           >
             Our Services
-            {/* Animated underline */}
-           
           </h2>
         </div>
         <div 
@@ -158,17 +135,15 @@ export default function OurServices() {
           const isAnimated = animatedItems.has(idx);
           
           return (
-           <div 
-  key={service.title} 
-  ref={el => { itemRefs.current[idx] = el; }} // ✅ notice the curly braces
-  className={`w-full transition-all duration-700 ease-out transform ${
-    isAnimated 
-      ? "opacity-100 translate-x-0 scale-100" 
-      : "opacity-0 translate-x-12 scale-95"
+            <div 
+              key={service.title} 
+              ref={el => { itemRefs.current[idx] = el; }}
+              className={`w-full transition-all duration-700 ease-out transform ${
+                isAnimated 
+                  ? "opacity-100 translate-x-0 scale-100" 
+                  : "opacity-0 translate-x-12 scale-95"
               } hover:bg-gradient-to-r hover:from-blue-50/30 hover:to-indigo-50/30 hover:shadow-lg hover:shadow-blue-100/50 rounded-lg`}
-              style={{ 
-                transitionDelay: `${800 + idx * 150}ms`,
-              }}
+              style={{ transitionDelay: `${800 + idx * 150}ms` }}
             >
               <button
                 onClick={() => handleToggle(idx)}
@@ -191,19 +166,18 @@ export default function OurServices() {
                     {/* Glowing effect on hover */}
                     <div className="absolute inset-0 bg-blue-400 rounded-full opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-500"></div>
                   </div>
-                 <span
-  className={`${montserrat.className} text-[18px] sm:text-[20px] font-semibold transition-all duration-500 transform group-hover:translate-x-1 ${
-    isActive 
-      ? "text-gray-400" 
-      : "text-[#3D3D3D] group-hover:text-[#007BFF]"
-  }`}
->
-  {service.title}
-</span>
-
+                  <span
+                    className={`${montserrat.className} text-[18px] sm:text-[20px] font-semibold transition-all duration-500 transform group-hover:translate-x-1 ${
+                      isActive 
+                        ? "text-gray-400" 
+                        : "text-[#3D3D3D] group-hover:text-[#007BFF]"
+                    }`}
+                  >
+                    {service.title}
+                  </span>
                 </div>
 
-                {/* Enhanced Arrow */}
+                {/* Arrow */}
                 <span
                   className={`ml-auto transition-all duration-500 transform group-hover:scale-110 ${
                     isActive 
@@ -228,7 +202,7 @@ export default function OurServices() {
                 </span>
               </button>
 
-              {/* Enhanced Slide Down Description */}
+              {/* Slide Down Description */}
               <div
                 className={`overflow-hidden transition-all duration-500 ease-out ${
                   isActive 
@@ -241,45 +215,15 @@ export default function OurServices() {
                     isActive 
                       ? "translate-y-0 opacity-100" 
                       : "translate-y-4 opacity-0"
-                  } relative`}
+                  }`}
                 >
                   {service.description}
-                 
                 </div>
               </div>
             </div>
           );
         })}
       </div>
-
-      {/* Floating particles effect */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {dotStyles && dotStyles.map((style, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 bg-blue-200 rounded-full opacity-0 transition-all duration-1000 ${
-              visible ? "animate-float" : ""
-            }`}
-            style={style}
-          ></div>
-        ))}
-      </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-            opacity: 0.3;
-          }
-          50% {
-            transform: translateY(-20px) rotate(180deg);
-            opacity: 0.8;
-          }
-        }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 }
