@@ -39,13 +39,13 @@ export default function GrowthPartners() {
         {/* Left Side */}
         <div>
           <h2
-            className={`${montserrat.className} text-[34px] sm:text-[38px] lg:text-[40px] leading-[50px] sm:leading-[54px] lg:leading-[56px] font-bold text-[#FFFFFF] mb-6`}
+            className={`${montserrat.className} text-[24px] sm:text-[38px] lg:text-[40px] leading-[50px] sm:leading-[54px] lg:leading-[56px] font-bold text-[#FFFFFF] mb-6`}
           >
             Trusted by ambitious businesses worldwide
           </h2>
 
           <p
-            className={`${dmSans.className} text-[18px] sm:text-[20px] leading-[38px] text-[#E0E0E0] mb-10 max-w-lg`}
+            className={`${dmSans.className} text-[16px] sm:text-[20px] leading-[38px] text-[#E0E0E0] mb-10 max-w-lg`}
           >
             From fast-growing startups to established enterprises, companies choose Hunting Skuad to find leaders and teams that power innovation and scale. With speed, precision, and a people-first approach, we’ve built a reputation for delivering talent that makes a difference.
           </p>
