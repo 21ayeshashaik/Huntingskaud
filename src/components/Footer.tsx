@@ -71,12 +71,12 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col space-y-2 sm:space-y-3">
               {[
-                { label: "Tech Recruitment", href: "/services/tech-recruitment" },
-                { label: "Executive Search", href: "/services/executive-search" },
-                { label: "Resource Process Outsourcing", href: "/services/rpo" },
-                { label: "Start-Up Accelerators", href: "/services/startup-accelerators" },
-                { label: "Talent Mapping", href: "/services/talent-mapping" },
-                { label: "Diversity & Inclusion", href: "/services/diversity-inclusion" },
+                { label: "Tech Recruitment", href: "/" },
+                { label: "Executive Search", href: "/" },
+                { label: "Resource Process Outsourcing", href: "/" },
+                { label: "Start-Up Accelerators", href: "/" },
+                { label: "Talent Mapping", href: "/" },
+                { label: "Diversity & Inclusion", href: "/" },
               ].map(({ label, href }, i) => (
                 <li key={i}>
                   <a

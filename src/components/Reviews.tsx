@@ -105,7 +105,7 @@ const TestimonialSection: React.FC = () => {
   return (
     <section
       ref={ref}
-      className={`py-16 px-6 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-22 bg-white w-full transition-opacity duration-700 ease-out transform ${
+      className={`py-16 px-6 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 bg-white w-full transition-opacity duration-700 ease-out transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -120,37 +120,45 @@ const TestimonialSection: React.FC = () => {
           <p
             className={`${dmSans.className} text-[16px] sm:text-[18px] leading-[28px] sm:leading-[32px] text-[#7F7F7F] max-w-sm`}
           >
-            Real stories from the companies and professionals who’ve trusted us
+            Real stories from the companies and professionals who've trusted us
             to shape their teams and careers.
           </p>
 
-          {/* Arrow Controls */}
-          <div className="flex gap-4 mt-8">
-            <button
-              onClick={handlePrev}
-              disabled={page === 0}
-              aria-label="Previous Testimonial"
-              className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#007BFF] hover:text-white disabled:opacity-50"
-            >
-              <FiArrowUpRight
-                className="text-[#007BFF]"
-                size={20}
-                style={{ transform: "rotate(225deg)" }}
-              />
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={page >= maxPage}
-              aria-label="Next Testimonial"
-              className="w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#007BFF] hover:text-white disabled:opacity-50"
-            >
-              <FiArrowUpRight
-                className="text-[#007BFF]"
-                size={20}
-                style={{ transform: "rotate(45deg)" }}
-              />
-            </button>
-          </div>
+          
+          {maxPage > 0 && (
+            <div className="flex gap-4 mt-8">
+              <button
+                onClick={handlePrev}
+                disabled={page === 0}
+                aria-label="Previous Testimonial"
+                className={`w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center transition-all duration-300 ${
+                  page === 0 
+                    ? "cursor-not-allowed opacity-40 text-gray-400 border-gray-300" 
+                    : "cursor-pointer text-[#007BFF] hover:bg-[#007BFF] hover:text-white"
+                }`}
+              >
+                <FiArrowUpRight
+                  size={20}
+                  style={{ transform: "rotate(225deg)" }}
+                />
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={page >= maxPage}
+                aria-label="Next Testimonial"
+                className={`w-10 h-10 rounded-full border-[1.5px] border-[#007BFF] flex items-center justify-center transition-all duration-300 ${
+                  page >= maxPage 
+                    ? "cursor-not-allowed opacity-40 text-gray-400 border-gray-300" 
+                    : "cursor-pointer text-[#007BFF] hover:bg-[#007BFF] hover:text-white"
+                }`}
+              >
+                <FiArrowUpRight
+                  size={20}
+                  style={{ transform: "rotate(45deg)" }}
+                />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Right Section - Slider */}
@@ -158,16 +166,30 @@ const TestimonialSection: React.FC = () => {
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${page * (100 / visibleSlides)}%)`,
+              transform: `translateX(-${page * 100}%)`,
             }}
           >
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-white px-5 sm:px-6 md:px-8 py-6 sm:py-7 rounded-2xl shadow-md"
+                className={`bg-white py-6 sm:py-7 rounded-2xl shadow-lg ${
+                  visibleSlides === 1 
+                    ? 'px-5 mr-0' // Mobile: full width, no margin
+                    : 'px-6 md:px-7 lg:px-5 xl:px-6 2xl:px-8 mr-4 lg:mr-3 xl:mr-4 2xl:mr-5'
+                }`}
                 style={{
-                  flex: `0 0 ${100 / visibleSlides}%`,
-                  maxWidth: `${100 / visibleSlides}%`,
+                  flex: visibleSlides === 1 
+                    ? '0 0 100%' // Mobile: each card takes full width
+                    : `0 0 calc(${100 / visibleSlides}% - ${
+                        visibleSlides === 2 ? '8px' : 
+                        visibleSlides === 3 ? '10px' : '12px'
+                      })`,
+                  maxWidth: visibleSlides === 1 
+                    ? '100%' // Mobile: each card takes full width
+                    : `calc(${100 / visibleSlides}% - ${
+                        visibleSlides === 2 ? '8px' : 
+                        visibleSlides === 3 ? '10px' : '12px'
+                      })`,
                 }}
               >
                 <div className="flex space-x-1 mb-3">
@@ -183,7 +205,7 @@ const TestimonialSection: React.FC = () => {
                   ))}
                 </div>
                 <p
-                  className={`${dmSans.className} text-[15px] sm:text-[16px] leading-[26px] text-[#7F7F7F] mb-6`}
+                  className={`${dmSans.className} text-[14px] sm:text-[16px] leading-[26px] text-[#7F7F7F] mb-4`}
                 >
                   {t.text}
                 </p>

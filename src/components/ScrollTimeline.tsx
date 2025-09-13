@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const ScrollTimeline = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [navOffset, setNavOffset] = useState<number>(70);
+  const roRef = useRef<ResizeObserver | null>(null);
 
   useEffect(() => {
     const updateScrollProgress = () => {
@@ -25,8 +27,45 @@ const ScrollTimeline = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const measureNav = () => {
+      const nav = document.getElementById("site-navbar");
+      if (nav) {
+        const h = nav.offsetHeight;
+        if (h && h !== navOffset) setNavOffset(h);
+      }
+    };
+
+    // Measure immediately and after next paint to avoid font/layout shifts
+    measureNav();
+    const t = setTimeout(measureNav, 50);
+
+    // Observe navbar size changes (e.g., responsive breakpoints)
+    const nav = document.getElementById("site-navbar");
+    if (nav && "ResizeObserver" in window) {
+      const ro = new ResizeObserver(measureNav);
+      ro.observe(nav);
+      roRef.current = ro;
+    }
+
+    window.addEventListener("resize", measureNav);
+
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", measureNav);
+      if (roRef.current && nav) {
+        try { roRef.current.unobserve(nav); } catch {}
+        roRef.current.disconnect();
+        roRef.current = null;
+      }
+    };
+  }, [navOffset]);
+
   return (
-    <div className="fixed top-[70px] sm:top-[75px] md:top-[80px] lg:top-[85px] xl:top-[90px] 2xl:top-[100px] left-0 right-0 z-40 bg-white border-b border-gray-200">
+    <div
+      className="fixed left-0 right-0 z-40 bg-white border-b border-gray-200"
+      style={{ top: navOffset }}
+    >
       {/* ↓ decreased from h-1 to h-0.5 */}
       <div className="relative h-0.5 bg-gray-100">
         <div

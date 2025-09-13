@@ -39,6 +39,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav
+        id="site-navbar"
         className={`w-full h-[70px] sm:h-[75px] md:h-[80px] lg:h-[85px] xl:h-[90px] 2xl:h-[100px] 
           bg-white flex items-center justify-between 
           px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-20 
@@ -173,40 +174,38 @@ const Navbar: React.FC = () => {
               );
             })}
 
-            {/* Mobile Contact Us Button with Gap Animation */}
-            <li
-              key="contact"
-              className={`transform transition-all duration-300 ease-out ${
-                isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
-              }`}
-              style={{ transitionDelay: `${menuItems.length * 80}ms` }}
-            >
-              
-              <div className="flex items-center group gap-0 transition-all duration-700 ease-in-out hover:gap-3">
-              <Link href="/contact">
-                <div className="relative overflow-hidden">
-                  
-                  <button
-                    //onClick={scrollToContact}
-                    className="px-6 py-3 font-medium whitespace-nowrap bg-[#007BFF] text-white rounded-[50px] transition-all duration-300 hover:bg-blue-600"
-                  >
-                    Contact Us
-                  </button>
-                </div>
-                <div
-                 // onClick={scrollToContact}
-                  className="w-10 h-10 rounded-full border border-white flex items-center justify-center cursor-pointer
-                    transition-all duration-700 ease-in-out group-hover:bg-white group-hover:text-[#007BFF] group-hover:scale-110 group-hover:shadow-lg group-hover:translate-x-2"
-                >
-                  <FiArrowUpRight
-                    className="text-white group-hover:text-[#007BFF] transition-all duration-500 ease-out group-hover:rotate-45"
-                    size={18}
-                  />
-                </div>
-                 </Link>
-              </div>
-             
-            </li>
+{/* Mobile Contact Us Button with Gap Animation */}
+<li
+  key="contact"
+  className={`transform transition-all duration-300 ease-out ${
+    isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+  }`}
+  style={{ transitionDelay: `${menuItems.length * 80}ms` }}
+>
+  <div className="flex items-center group gap-0 transition-all duration-700 ease-in-out hover:gap-3">
+    <Link href="/contact" className="flex items-center">
+      <button
+        className="px-6 py-3 font-medium whitespace-nowrap bg-[#007BFF] text-white rounded-[50px] transition-all duration-300 hover:bg-blue-600"
+        onClick={closeMenu} // close menu after click
+        type="button"
+      >
+        Contact Us
+      </button>
+      <div
+        className="w-10 h-10 rounded-full border border-[#007BFF] flex items-center justify-center cursor-pointer
+          transition-all duration-700 ease-in-out group-hover:bg-[#007BFF] group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:translate-x-2"
+        aria-hidden="true"
+      >
+        <FiArrowUpRight
+          className="text-[#007BFF] group-hover:text-white transition-all duration-500 ease-out group-hover:rotate-45"
+          size={18}
+        />
+      </div>
+    </Link>
+  </div>
+</li>
+
+
           </ul>
 
           {/* Bottom decorative element */}
