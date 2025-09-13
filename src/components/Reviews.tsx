@@ -120,7 +120,7 @@ const TestimonialSection: React.FC = () => {
           <p
             className={`${dmSans.className} text-[16px] sm:text-[18px] leading-[28px] sm:leading-[32px] text-[#7F7F7F] max-w-sm`}
           >
-            Real stories from the companies and professionals who've trusted us
+            Real stories from the companies and professionals who&lsquo;ve trusted us
             to shape their teams and careers.
           </p>
 

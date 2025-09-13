@@ -49,7 +49,7 @@ export default function HeroSection() {
           <p className={`${dmSans.className} text-[18px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px] leading-[36px] lg:leading-[38px] xl:leading-[40px] 2xl:leading-[42px] text-[#909090] mb-8`}>
             We combine deep startup expertise, leadership insights, and a
             research-driven approach to connect businesses with professionals
-            who don't just fit roles but strengthen organizations.
+            who don&lsquo;t just fit roles but strengthen organizations.
           </p>
 
           {/* Buttons */}
