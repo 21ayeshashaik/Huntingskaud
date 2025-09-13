@@ -39,7 +39,7 @@ export default function GrowthPartners() {
         {/* Left Side */}
         <div>
           <h2
-            className={`${montserrat.className} text-[24px] sm:text-[38px] lg:text-[40px] leading-[50px] sm:leading-[54px] lg:leading-[56px] font-bold text-[#FFFFFF] mb-6`}
+            className={`${montserrat.className} text-[26px] sm:text-[38px] lg:text-[40px] leading-[50px] sm:leading-[54px] lg:leading-[56px] font-bold text-[#FFFFFF] mb-6`}
           >
             Trusted by ambitious businesses worldwide
           </h2>
