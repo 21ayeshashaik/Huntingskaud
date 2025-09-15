@@ -42,7 +42,7 @@ export default function HireSection() {
             lineHeight: "clamp(2rem, 3vw, 3rem)", // responsive line height
           }}
         >
-          We built the recruitment partner we always wished we had, so you don’t have to search alone.
+         Finding the key to your hiring lock the recruitment partner we always wished we had, so you don’t have to search alone.
         </h2>
       </div>
 

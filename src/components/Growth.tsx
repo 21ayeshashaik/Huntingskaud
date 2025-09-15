@@ -85,12 +85,12 @@ export default function GrowthPartners() {
               <p
                 className={`${dmSans.className} text-2xl sm:text-3xl md:text-[35px] leading-[34px] italic font-semibold text-[#007BFF]`}
               >
-                200+
+                100+
               </p>
               <p
                 className={`${dmSans.className} text-base sm:text-lg md:text-[18px] leading-[26px] font-normal text-[#7F7F7F]`}
               >
-                Business Partnered
+               clients serviced
               </p>
             </div>
 

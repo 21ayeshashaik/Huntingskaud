@@ -84,10 +84,7 @@ export default function WhyCompanies() {
               leading-[24px] sm:leading-[28px] lg:leading-[32px] xl:leading-[34px] 2xl:leading-[38px]
               text-[#7F7F7F]`}
           >
-            It is a long established fact that a reader will be distracted by the
-            readable content of a page when looking at its layout. The point of
-            using Lorem Ipsum is that it has a more-or-less normal distribution
-            of letters.
+            We provide access to an unparalleled niche talent in specific industries. Combining this with our straight forward, honest and client first approach makes us the first choice for our clients. 
           </p>
         </div>
 
