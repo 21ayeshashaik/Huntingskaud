@@ -34,7 +34,7 @@ export default function RecruitmentJourney() {
           className={`${dmSans.className} text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-relaxed sm:leading-[1.7] text-[#909090] max-w-6xl mx-auto`}
         >
       
-Leveraging our founders' collective experience of more than 2 decades in indian recruitment space, we've been able to create a vast pool of candidates through our industry network. Our experience in working with companies ranging from stealth mode startups to large organizations gives us the necessary expertise and experience required to fulfil your hiring requirements. 
+Leveraging our founders&lsquo; collective experience of more than 2 decades in indian recruitment space, we&lsquo;ve been able to create a vast pool of candidates through our industry network. Our experience in working with companies ranging from stealth mode startups to large organizations gives us the necessary expertise and experience required to fulfil your hiring requirements. 
         </p>
 
      {/* Buttons */}
